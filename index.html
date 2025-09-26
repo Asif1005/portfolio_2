@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asif Mahmud - Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <!-- Devicons for programming logos -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <style>
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-up-child {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in-up-child.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Card Hover Effect */
+    .card-hover-effect {
+      transition: transform 0.3s ease, box-shadow 0.3s ease, ring-color 0.3s ease;
+    }
+    .card-hover-effect:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+      ring: 2px solid rgba(99, 102, 241, 0.5);
+    }
+
+    /* Navbar Hover Animation */
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: currentColor;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed w-full top-0 left-0 z-50 backdrop-blur-md bg-white/70 dark:bg-gray-900/70 shadow-md">
+    <div class="max-w-6xl mx-auto px-6 py-3 flex justify-center items-center">
+      <ul class="hidden md:flex space-x-6 font-medium">
+        <li><a href="#about" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">About</a></li>
+        <li><a href="#skills" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Skills</a></li>
+        <li><a href="#programming" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Programming</a></li>
+        <li><a href="#projects" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a></li>
+        <li><a href="#experience" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Experience</a></li>
+        <li><a href="#education" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Education</a></li>
+        <li><a href="#publications" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Publications</a></li>
+        <li><a href="#competitions" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Competitions</a></li>
+        <li><a href="#extracurricular" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Activities</a></li>
+        <li><a href="#contact" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" class="ml-6 px-3 py-1 rounded border border-gray-300 dark:border-gray-700 text-sm">🌙</button>
+    </div>
+  </nav>
+
+      <!-- Hero -->
+  <section class="min-h-screen flex flex-row items-center justify-center px-6 pt-20 bg-gradient-to-r from-indigo-50 to-white dark:from-gray-800 dark:to-gray-900 transition-colors duration-300 fade-in-up-parent">
+    <!-- Left: Text -->
+    <div class="flex-1 text-left pr-6">
+      <h2 class="fade-in-up-child text-4xl sm:text-5xl font-bold text-indigo-700 dark:text-indigo-400 mb-4">Hi, I'm Asif Mahmud</h2>
+      <p class="fade-in-up-child text-lg text-gray-600 dark:text-gray-300 mb-6">SQA Engineer (Manual & Automation) | Frontend Developer</p>
+      
+      <!-- Social Icons -->
+      <div class="fade-in-up-child flex gap-6 mb-6">
+        <a href="https://www.linkedin.com/in/asif-mahmud-26a574243/" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:scale-110 transition transform">
+          <!-- LinkedIn Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.761 0 5-2.24 5-5v-14c0-2.76-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.784 1.764-1.75 1.764zm13.5 11.268h-3v-5.604c0-1.337-.027-3.059-1.863-3.059-1.863 0-2.149 1.454-2.149 2.957v5.706h-3v-10h2.879v1.367h.041c.401-.759 1.379-1.559 2.839-1.559 3.037 0 3.596 2.002 3.596 4.605v5.587z"/>
+          </svg>
+        </a>
+        <a href="https://github.com/Asif1005" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:scale-110 transition transform">
+          <!-- GitHub Icon -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.111.82-.261.82-.577 
+            0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.084-.729.084-.729 
+            1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.304-5.466-1.334-5.466-5.931 
+            0-1.31.469-2.381 1.236-3.221-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 
+            3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 
+            3.297-1.23 3.297-1.23.655 1.653.243 2.874.119 
+            3.176.77.84 1.235 1.911 1.235 3.221 
+            0 4.609-2.807 5.625-5.479 5.921.43.371.823 1.103.823 2.222 
+            0 1.604-.015 2.896-.015 3.286 
+            0 .319.216.694.825.576 4.765-1.589 8.2-6.084 
+            8.2-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex gap-4">
+        <a href="#contact" 
+           class="fade-in-up-child bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-lg shadow-md transform transition duration-300 hover:scale-105 hover:from-indigo-700 hover:to-purple-700">
+          Contact
+        </a>
+        <a href="https://drive.google.com/file/d/1fKEEq-w4mLYzkw5xQ_5BCHIc9YMVv0PU/view?usp=drive_link" download 
+           class="fade-in-up-child border-2 border-indigo-600 dark:border-indigo-400 text-indigo-600 dark:text-indigo-400 px-6 py-2 rounded-lg shadow-md transform transition duration-300 hover:scale-105 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-400 dark:hover:text-gray-900">
+          Download CV
+        </a>
+      </div>
+    </div>
+
+    <!-- Right: Profile Image -->
+    <div class="flex-1 flex justify-center fade-in-up-child">
+      <img src="/portfolio.jpg" alt="Asif Mahmud" class="w-64 h-64 rounded-2xl object-cover shadow-xl hover:scale-105 transition-transform duration-300">
+    </div>
+  </section>
+
+
+  <!-- About -->
+  <section id="about" class="max-w-5xl mx-auto py-20 px-6 text-center fade-in-up">
+    <h2 class="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-6">About Me</h2>
+    <p class="text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
+      Motivated computer science graduate with hands-on experience in software testing and frontend development. 
+      Passionate about ensuring software quality through both manual and automated testing approaches. 
+      I enjoy solving problems, collaborating with teams, and learning new tools.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="bg-gray-100 dark:bg-gray-800 py-20 px-6 transition-colors duration-300 fade-in-up-parent">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-8 text-center fade-in-up-child">Skills</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 text-center">
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">Manual Testing</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">Documentation (SRS, Test Cases, Reports)</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">Jira</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">UI Testing</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">Postman</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">Selenium</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">WebdriverIO</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">React.js</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">JavaScript</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">HTML5</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">CSS / Tailwind / Bootstrap</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">MySQL</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">Linux</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">Windows</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">Git / GitHub</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">VSCode</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">MS Office</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">Overleaf (LaTeX)</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">Analytical Thinking</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">Adaptability</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">Communication</span>
+        <span class="fade-in-up-child bg-white dark:bg-gray-700 p-3 rounded shadow card-hover-effect">Collaboration</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programming Languages -->
+  <section id="programming" class="max-w-5xl mx-auto py-20 px-6 fade-in-up-parent">
+    <h2 class="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-8 text-center fade-in-up-child">Programming Languages</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+      <div class="fade-in-up-child bg-white dark:bg-gray-700 p-6 rounded shadow card-hover-effect flex flex-col items-center">
+        <i class="devicon-python-plain text-5xl text-indigo-600 dark:text-indigo-400"></i>
+        <span class="mt-2 font-medium">Python</span>
+      </div>
+      <div class="fade-in-up-child bg-white dark:bg-gray-700 p-6 rounded shadow card-hover-effect flex flex-col items-center">
+        <i class="devicon-javascript-plain text-5xl text-yellow-500"></i>
+        <span class="mt-2 font-medium">JavaScript</span>
+      </div>
+      <div class="fade-in-up-child bg-white dark:bg-gray-700 p-6 rounded shadow card-hover-effect flex flex-col items-center">
+        <i class="devicon-cplusplus-plain text-5xl text-blue-600"></i>
+        <span class="mt-2 font-medium">C++</span>
+      </div>
+      <div class="fade-in-up-child bg-white dark:bg-gray-700 p-6 rounded shadow card-hover-effect flex flex-col items-center">
+        <i class="devicon-c-plain text-5xl text-gray-700 dark:text-gray-200"></i>
+        <span class="mt-2 font-medium">C Programming</span>
+      </div>
+    </div>
+  </section>
+
+   <!-- Projects -->
+  <section id="projects" class="max-w-5xl mx-auto py-20 px-6 fade-in-up-parent">
+    <h2 class="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-8 text-center fade-in-up-child">Projects</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="fade-in-up-child bg-white dark:bg-gray-700 p-6 rounded-xl shadow card-hover-effect">
+        <h3 class="font-semibold text-lg">Manual Testing Project</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300 mb-2">E-commerce testing with search and cart validation.</p>
+        <a href="https://github.com/Asif1005/Manual_Testing" class="text-indigo-600 dark:text-indigo-400 underline hover:opacity-80">View on GitHub</a>
+      </div>
+      <div class="fade-in-up-child bg-white dark:bg-gray-700 p-6 rounded-xl shadow card-hover-effect">
+        <h3 class="font-semibold text-lg">API Testing with Postman</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300 mb-2">Tested bookstore API endpoints with Postman.</p>
+        <a href="https://github.com/Asif1005/Api_testing_Postman" class="text-indigo-600 dark:text-indigo-400 underline hover:opacity-80">View on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="bg-gray-100 dark:bg-gray-800 py-20 px-6 fade-in-up-parent">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-8 text-center fade-in-up-child">Experience</h2>
+      <div class="space-y-6">
+        <div class="fade-in-up-child bg-white dark:bg-gray-700 p-6 rounded-xl shadow card-hover-effect">
+          <h3 class="font-semibold">Intern (Web Developer) – Ipit Institute</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300">Nov 2024 – Jan 2025</p>
+          <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 text-sm mt-2">
+            <li>Worked on a web-based application (E-Hut project)</li>
+            <li>Contributed to frontend using HTML, CSS, Tailwind, React.js</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education" class="max-w-5xl mx-auto py-20 px-6 fade-in-up-parent">
+    <h2 class="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-8 text-center fade-in-up-child">Education</h2>
+    <div class="space-y-6">
+      <div class="fade-in-up-child bg-white dark:bg-gray-700 p-6 rounded-xl shadow card-hover-effect">
+        <h3 class="font-semibold">B.Sc. in Computer Science & Engineering – BAIUST</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300">Apr 2020 – Jan 2025 | CGPA: 3.61 / 4.00</p>
+      </div>
+      <div class="fade-in-up-child bg-white dark:bg-gray-700 p-6 rounded-xl shadow card-hover-effect">
+        <h3 class="font-semibold">Higher Secondary Certificate – Cumilla Government College</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300">Mar 2017 – Apr 2019 | Science</p>
+      </div>
+      <div class="fade-in-up-child bg-white dark:bg-gray-700 p-6 rounded-xl shadow card-hover-effect">
+        <h3 class="font-semibold">Secondary School Certificate – Cumilla Zilla School</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300">Jan 2012 – Feb 2017 | Science</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section id="publications" class="max-w-5xl mx-auto py-20 px-6 fade-in-up-parent">
+    <h2 class="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-8 text-center fade-in-up-child">Publications</h2>
+    <div class="fade-in-up-child bg-white dark:bg-gray-700 p-6 rounded-xl shadow card-hover-effect">
+      <h3 class="font-semibold">Transformers vs. Traditional Models: Analyzing Media Bias in Bangladeshi News Through Sentiment Analysis</h3>
+      <p class="text-sm text-gray-600 dark:text-gray-300 mb-2">Published in IEEE Xplore (International Conference on ECCE 2025)</p>
+      <a href="https://ieeexplore.ieee.org/document/11013784" class="text-indigo-600 dark:text-indigo-400 underline hover:opacity-80">View Publication</a>
+    </div>
+  </section>
+
+  <!-- Competitions -->
+  <section id="competitions" class="bg-gray-100 dark:bg-gray-800 py-20 px-6 fade-in-up-parent">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-8 text-center fade-in-up-child">Competitions</h2>
+      <ul class="space-y-4">
+        <li class="fade-in-up-child bg-white dark:bg-gray-700 p-4 rounded shadow card-hover-effect">🏆 ICPC Asia Dhaka Preliminary – Honorable Mention (2022)</li>
+        <li class="fade-in-up-child bg-white dark:bg-gray-700 p-4 rounded shadow card-hover-effect">💻 Devfest Hackathon – Participant (2023)</li>
+        <li class="fade-in-up-child bg-white dark:bg-gray-700 p-4 rounded shadow card-hover-effect">🏆 ICPC Asia Dhaka Preliminary – Honorable Mention (2024)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Extracurricular -->
+  <section id="extracurricular" class="max-w-5xl mx-auto py-20 px-6 fade-in-up-parent">
+    <h2 class="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-8 text-center fade-in-up-child">Extracurricular Activities</h2>
+    <div class="space-y-4">
+      <div class="fade-in-up-child bg-white dark:bg-gray-700 p-4 rounded shadow card-hover-effect">
+        <h3 class="font-semibold">Assistant Secretary – BAIUST Computer Club (BCC)</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300">Jun 2023 – Jun 2024</p>
+      </div>
+      <div class="fade-in-up-child bg-white dark:bg-gray-700 p-4 rounded shadow card-hover-effect">
+        <h3 class="font-semibold">Campus Ambassador – Interactive Cares</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300">Apr 2023 – Sep 2024</p>
+      </div>
+      <div class="fade-in-up-child bg-white dark:bg-gray-700 p-4 rounded shadow card-hover-effect">
+        <h3 class="font-semibold">Event Ambassador – Requin BD (Idea Contest 1.0)</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300">Sep 2023</p>
+      </div>
+      <div class="fade-in-up-child bg-white dark:bg-gray-700 p-4 rounded shadow card-hover-effect">
+        <h3 class="font-semibold">Virtual Internship – Requin BD (Operations Management)</h3>
+        <p class="text-sm text-gray-600 dark:text-gray-300">Jan 2024 – May 2024</p>
+      </div>
+    </div>
+  </section>
+
+    <!-- Contact -->
+  <section id="contact" class="max-w-5xl mx-auto py-20 px-6 text-center fade-in-up-parent">
+    <h2 class="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-6 fade-in-up-child">Get in Touch</h2>
+    <p class="text-gray-700 dark:text-gray-300 mb-8 fade-in-up-child">Feel free to reach out for opportunities or collaborations.</p>
+    <div class="grid md:grid-cols-3 gap-6">
+      
+      <!-- Email -->
+      <div class="fade-in-up-child bg-white dark:bg-gray-700 p-6 rounded shadow card-hover-effect">
+        <h3 class="font-semibold mb-2">📧 Email</h3>
+        <p class="text-gray-600 dark:text-gray-300 text-sm">asifmahmud00010@gmail.com</p>
+      </div>
+      
+      <!-- Phone -->
+      <div class="fade-in-up-child bg-white dark:bg-gray-700 p-6 rounded shadow card-hover-effect">
+        <h3 class="font-semibold mb-2">📱 Phone</h3>
+        <p class="text-gray-600 dark:text-gray-300 text-sm">+8801701080392</p>
+      </div>
+      
+      <!-- Social -->
+      <div class="fade-in-up-child bg-white dark:bg-gray-700 p-6 rounded shadow card-hover-effect">
+        <h3 class="font-semibold mb-4">🌐 Social</h3>
+        <div class="flex justify-center gap-6">
+          <a href="https://www.linkedin.com/in/asif-mahmud-26a574243/" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:opacity-80 transition">
+            <!-- LinkedIn Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.761 0 5-2.24 5-5v-14c0-2.76-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.784 1.764-1.75 1.764zm13.5 11.268h-3v-5.604c0-1.337-.027-3.059-1.863-3.059-1.863 0-2.149 1.454-2.149 2.957v5.706h-3v-10h2.879v1.367h.041c.401-.759 1.379-1.559 2.839-1.559 3.037 0 3.596 2.002 3.596 4.605v5.587z"/>
+            </svg>
+          </a>
+          <a href="https://github.com/Asif1005" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:opacity-80 transition">
+            <!-- GitHub Icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.111.82-.261.82-.577 
+              0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.084-.729.084-.729 
+              1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.809 1.304 3.495.997.108-.775.418-1.305.762-1.605-2.665-.304-5.466-1.334-5.466-5.931 
+              0-1.31.469-2.381 1.236-3.221-.124-.303-.536-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 
+              3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 
+              3.297-1.23 3.297-1.23.655 1.653.243 2.874.119 
+              3.176.77.84 1.235 1.911 1.235 3.221 
+              0 4.609-2.807 5.625-5.479 5.921.43.371.823 1.103.823 2.222 
+              0 1.604-.015 2.896-.015 3.286 
+              0 .319.216.694.825.576 4.765-1.589 8.2-6.084 
+              8.2-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-gray-800 py-6 text-center shadow">
+    <p class="text-gray-600 dark:text-gray-400">&copy; 2025 Asif Mahmud. All rights reserved.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    const navbar = document.getElementById('navbar');
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+
+    if (localStorage.getItem('theme') === 'dark' || 
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      html.classList.add('dark');
+      themeToggle.textContent = '☀️';
+    } else {
+      themeToggle.textContent = '🌙';
+    }
+
+    themeToggle.addEventListener('click', () => {
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        themeToggle.textContent = '🌙';
+      } else {
+        html.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.textContent = '☀️';
+      }
+    });
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('bg-white', 'dark:bg-gray-900', 'shadow');
+      } else {
+        navbar.classList.remove('bg-white', 'dark:bg-gray-900', 'shadow');
+      }
+    });
+
+    const staggerContainers = document.querySelectorAll('.fade-in-up-parent');
+    staggerContainers.forEach(container => {
+      const children = container.querySelectorAll('.fade-in-up-child');
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            children.forEach((child, index) => {
+              child.style.transitionDelay = `${index * 0.15}s`;
+              child.classList.add('show');
+            });
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2, rootMargin: "0px 0px -50px 0px" });
+      observer.observe(container);
+    });
+
+    const faders = document.querySelectorAll('.fade-in-up:not(.fade-in-up-parent)');
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2, rootMargin: "0px 0px -50px 0px" });
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
+</body>
+</html>
