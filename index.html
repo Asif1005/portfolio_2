@@ -59,38 +59,187 @@
     .nav-link:hover::after {
       width: 100%;
     }
+
+    /* Mobile menu styles */
+    #mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    
+    #mobile-menu.open {
+      max-height: 500px;
+    }
+    
+    /* Hamburger icon animation */
+    .hamburger-line {
+      transition: all 0.3s ease;
+    }
+    
+    #hamburger-btn.open .hamburger-line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    #hamburger-btn.open .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+    
+    #hamburger-btn.open .hamburger-line:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    /* Certificate slider styles */
+    .certificate-slider {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    
+    .certificate-slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    
+    .certificate-slide {
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .certificate-slide img {
+      max-width: 100%;
+      max-height: 500px;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .slider-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(99, 102, 241, 0.7);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background 0.3s;
+      z-index: 10;
+    }
+    
+    .slider-nav:hover {
+      background: rgba(99, 102, 241, 0.9);
+    }
+    
+    .slider-nav.prev {
+      left: 10px;
+    }
+    
+    .slider-nav.next {
+      right: 10px;
+    }
+    
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      gap: 10px;
+    }
+    
+    .slider-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #cbd5e1;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    .slider-dot.active {
+      background: #4f46e5;
+    }
+    
+    @media (max-width: 768px) {
+      .slider-nav {
+        width: 35px;
+        height: 35px;
+      }
+      
+      .certificate-slide img {
+        max-height: 300px;
+      }
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 font-sans transition-colors duration-300">
 
   <!-- Navbar -->
   <nav id="navbar" class="fixed w-full top-0 left-0 z-50 backdrop-blur-md bg-white/70 dark:bg-gray-900/70 shadow-md">
-    <div class="max-w-6xl mx-auto px-6 py-3 flex justify-center items-center">
-      <ul class="hidden md:flex space-x-6 font-medium">
-        <li><a href="#about" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">About</a></li>
-        <li><a href="#skills" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Skills</a></li>
-        <li><a href="#programming" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Programming</a></li>
-        <li><a href="#projects" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a></li>
-        <li><a href="#experience" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Experience</a></li>
-        <li><a href="#education" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Education</a></li>
-        <li><a href="#publications" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Publications</a></li>
-        <li><a href="#competitions" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Competitions</a></li>
-        <li><a href="#extracurricular" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Activities</a></li>
-        <li><a href="#contact" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a></li>
+    <div class="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
+      <!-- Mobile menu button -->
+      <button id="hamburger-btn" class="md:hidden flex flex-col w-6 h-6 justify-center items-center space-y-1">
+        <span class="hamburger-line w-full h-0.5 bg-gray-800 dark:bg-gray-200"></span>
+        <span class="hamburger-line w-full h-0.5 bg-gray-800 dark:bg-gray-200"></span>
+        <span class="hamburger-line w-full h-0.5 bg-gray-800 dark:bg-gray-200"></span>
+      </button>
+      
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center justify-between w-full">
+        <ul class="flex space-x-6 font-medium">
+          <li><a href="#about" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">About</a></li>
+          <li><a href="#skills" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Skills</a></li>
+          <li><a href="#programming" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Programming</a></li>
+          <li><a href="#projects" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Projects</a></li>
+          <li><a href="#experience" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Experience</a></li>
+          <li><a href="#education" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Education</a></li>
+          <li><a href="#courses" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Courses</a></li>
+          <li><a href="#certificates" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Certificates</a></li>
+          <li><a href="#publications" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Publications</a></li>
+          <li><a href="#competitions" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Competitions</a></li>
+          <li><a href="#extracurricular" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Activities</a></li>
+          <li><a href="#contact" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400">Contact</a></li>
+        </ul>
+        <button id="theme-toggle" class="px-3 py-1 rounded border border-gray-300 dark:border-gray-700 text-sm ml-8">🌙</button>
+      </div>
+      
+      <!-- Theme toggle for mobile -->
+      <button id="theme-toggle-mobile" class="md:hidden px-3 py-1 rounded border border-gray-300 dark:border-gray-700 text-sm">🌙</button>
+    </div>
+    
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="md:hidden bg-white dark:bg-gray-900 shadow-lg">
+      <ul class="flex flex-col space-y-4 p-6 font-medium">
+        <li><a href="#about" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400 block py-2">About</a></li>
+        <li><a href="#skills" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400 block py-2">Skills</a></li>
+        <li><a href="#programming" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400 block py-2">Programming</a></li>
+        <li><a href="#projects" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400 block py-2">Projects</a></li>
+        <li><a href="#experience" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400 block py-2">Experience</a></li>
+        <li><a href="#education" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400 block py-2">Education</a></li>
+        <li><a href="#courses" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400 block py-2">Courses</a></li>
+        <li><a href="#certificates" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400 block py-2">Certificates</a></li>
+        <li><a href="#publications" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400 block py-2">Publications</a></li>
+        <li><a href="#competitions" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400 block py-2">Competitions</a></li>
+        <li><a href="#extracurricular" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400 block py-2">Activities</a></li>
+        <li><a href="#contact" class="nav-link hover:text-indigo-600 dark:hover:text-indigo-400 block py-2">Contact</a></li>
       </ul>
-      <button id="theme-toggle" class="ml-6 px-3 py-1 rounded border border-gray-300 dark:border-gray-700 text-sm">🌙</button>
     </div>
   </nav>
 
-      <!-- Hero -->
-  <section class="min-h-screen flex flex-row items-center justify-center px-6 pt-20 bg-gradient-to-r from-indigo-50 to-white dark:from-gray-800 dark:to-gray-900 transition-colors duration-300 fade-in-up-parent">
-    <!-- Left: Text -->
-    <div class="flex-1 text-left pr-6">
+  <!-- Hero -->
+  <section class="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 pt-32 md:pt-20 pb-10 bg-gradient-to-r from-indigo-50 to-white dark:from-gray-800 dark:to-gray-900 transition-colors duration-300 fade-in-up-parent">
+    <!-- Text Content (order changes on mobile) -->
+    <div class="flex-1 text-center md:text-left md:pr-6 order-2 md:order-1">
       <h2 class="fade-in-up-child text-4xl sm:text-5xl font-bold text-indigo-700 dark:text-indigo-400 mb-4">Hi, I'm Asif Mahmud</h2>
       <p class="fade-in-up-child text-lg text-gray-600 dark:text-gray-300 mb-6">SQA Engineer (Manual & Automation) | Frontend Developer</p>
       
       <!-- Social Icons -->
-      <div class="fade-in-up-child flex gap-6 mb-6">
+      <div class="fade-in-up-child flex gap-6 mb-6 justify-center md:justify-start">
         <a href="https://www.linkedin.com/in/asif-mahmud-26a574243/" target="_blank" class="text-indigo-600 dark:text-indigo-400 hover:scale-110 transition transform">
           <!-- LinkedIn Icon -->
           <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
@@ -116,7 +265,7 @@
       </div>
 
       <!-- Buttons -->
-      <div class="flex gap-4">
+      <div class="flex gap-4 justify-center md:justify-start">
         <a href="#contact" 
            class="fade-in-up-child bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-2 rounded-lg shadow-md transform transition duration-300 hover:scale-105 hover:from-indigo-700 hover:to-purple-700">
           Contact
@@ -128,12 +277,11 @@
       </div>
     </div>
 
-    <!-- Right: Profile Image -->
-    <div class="flex-1 flex justify-center fade-in-up-child">
+    <!-- Profile Image (order changes on mobile) -->
+    <div class="flex-1 flex justify-center fade-in-up-child mb-10 md:mb-0 order-1 md:order-2">
       <img src="portfolio.png" alt="Asif Mahmud" class="w-64 h-64 rounded-2xl object-cover shadow-xl hover:scale-105 transition-transform duration-300">
     </div>
   </section>
-
 
   <!-- About -->
   <section id="about" class="max-w-5xl mx-auto py-20 px-6 text-center fade-in-up">
@@ -252,6 +400,72 @@
     </div>
   </section>
 
+  <!-- Courses -->
+  <section id="courses" class="bg-gray-100 dark:bg-gray-800 py-20 px-6 fade-in-up-parent">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-8 text-center fade-in-up-child">Courses</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="fade-in-up-child bg-white dark:bg-gray-700 p-6 rounded-xl shadow card-hover-effect">
+          <h3 class="font-semibold">SQA: Manual & Automated Testing</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-2">Ostad Platform</p>
+        </div>
+        <div class="fade-in-up-child bg-white dark:bg-gray-700 p-6 rounded-xl shadow card-hover-effect">
+          <h3 class="font-semibold">Quality Assurance and Software Testing</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-300 mb-2">Enhancing Digital Government And Economy (EDGE)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certificates Section -->
+  <section id="certificates" class="max-w-5xl mx-auto py-20 px-6 fade-in-up-parent">
+    <h2 class="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-8 text-center fade-in-up-child">Certificates</h2>
+    
+    <div class="certificate-slider bg-white dark:bg-gray-700 p-6 rounded-xl shadow">
+      <div class="certificate-slides">
+        <!-- Certificate 1 -->
+        <div class="certificate-slide">
+          <img src="ostad.png" alt="SQA Certificate">
+        </div>
+        
+        <!-- Certificate 2 -->
+        <div class="certificate-slide">
+          <img src="edge.png" alt="Web Development Certificate">
+        </div>
+        
+        <!-- Certificate 3 -->
+        <div class="certificate-slide">
+          <img src="ipit.png" alt="JavaScript Certificate">
+        </div>
+        
+        <!-- Certificate 4 -->
+        <div class="certificate-slide">
+          <img src="bcc.png" alt="React Certificate">
+        </div>
+      </div>
+      
+      <!-- Navigation buttons -->
+      <button class="slider-nav prev">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button class="slider-nav next">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+      
+      <!-- Dots indicator -->
+      <div class="slider-dots">
+        <span class="slider-dot active" data-slide="0"></span>
+        <span class="slider-dot" data-slide="1"></span>
+        <span class="slider-dot" data-slide="2"></span>
+        <span class="slider-dot" data-slide="3"></span>
+      </div>
+    </div>
+  </section>
+
   <!-- Publications -->
   <section id="publications" class="max-w-5xl mx-auto py-20 px-6 fade-in-up-parent">
     <h2 class="text-3xl font-bold text-indigo-600 dark:text-indigo-400 mb-8 text-center fade-in-up-child">Publications</h2>
@@ -356,28 +570,55 @@
   <script>
     const navbar = document.getElementById('navbar');
     const themeToggle = document.getElementById('theme-toggle');
+    const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
     const html = document.documentElement;
 
+    // Theme toggle functionality
     if (localStorage.getItem('theme') === 'dark' || 
         (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       html.classList.add('dark');
       themeToggle.textContent = '☀️';
+      themeToggleMobile.textContent = '☀️';
     } else {
       themeToggle.textContent = '🌙';
+      themeToggleMobile.textContent = '🌙';
     }
 
-    themeToggle.addEventListener('click', () => {
+    function toggleTheme() {
       if (html.classList.contains('dark')) {
         html.classList.remove('dark');
         localStorage.setItem('theme', 'light');
         themeToggle.textContent = '🌙';
+        themeToggleMobile.textContent = '🌙';
       } else {
         html.classList.add('dark');
         localStorage.setItem('theme', 'dark');
         themeToggle.textContent = '☀️';
+        themeToggleMobile.textContent = '☀️';
       }
+    }
+
+    themeToggle.addEventListener('click', toggleTheme);
+    themeToggleMobile.addEventListener('click', toggleTheme);
+
+    // Mobile menu toggle functionality
+    hamburgerBtn.addEventListener('click', () => {
+      hamburgerBtn.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
     });
 
+    // Close mobile menu when clicking on a link
+    const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburgerBtn.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+    // Navbar scroll effect
     window.addEventListener('scroll', () => {
       if (window.scrollY > 20) {
         navbar.classList.add('bg-white', 'dark:bg-gray-900', 'shadow');
@@ -386,6 +627,7 @@
       }
     });
 
+    // Fade-in animation functionality
     const staggerContainers = document.querySelectorAll('.fade-in-up-parent');
     staggerContainers.forEach(container => {
       const children = container.querySelectorAll('.fade-in-up-child');
@@ -413,6 +655,65 @@
       });
     }, { threshold: 0.2, rootMargin: "0px 0px -50px 0px" });
     faders.forEach(fader => appearOnScroll.observe(fader));
+    
+    // Certificate Slider Functionality
+    const certificateSlider = document.querySelector('.certificate-slides');
+    const slides = document.querySelectorAll('.certificate-slide');
+    const prevBtn = document.querySelector('.slider-nav.prev');
+    const nextBtn = document.querySelector('.slider-nav.next');
+    const dots = document.querySelectorAll('.slider-dot');
+    
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    
+    // Function to update slider position
+    function updateSlider() {
+      certificateSlider.style.transform = `translateX(-${currentSlide * 100}%)`;
+      
+      // Update active dot
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+    
+    // Next slide
+    nextBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+    });
+    
+    // Previous slide
+    prevBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlider();
+    });
+    
+    // Dot navigation
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentSlide = index;
+        updateSlider();
+      });
+    });
+    
+    // Auto slide (optional)
+    let autoSlideInterval = setInterval(() => {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+    }, 5000);
+    
+    // Pause auto slide on hover
+    const sliderContainer = document.querySelector('.certificate-slider');
+    sliderContainer.addEventListener('mouseenter', () => {
+      clearInterval(autoSlideInterval);
+    });
+    
+    sliderContainer.addEventListener('mouseleave', () => {
+      autoSlideInterval = setInterval(() => {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlider();
+      }, 5000);
+    });
   </script>
 </body>
 </html>
